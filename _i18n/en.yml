@@ -1,0 +1,9 @@
+global:
+  tagline: English
+  about: "About Me"
+
+langs:
+  ga: Gaeilge
+  en: English
+titles:
+  about: About me
