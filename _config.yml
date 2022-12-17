@@ -260,6 +260,7 @@ timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database
 
 gems:
   - jekyll-liquify
+  - jekyll-multiple-languages-plugin
 
 # Plugins
 plugins:
@@ -268,7 +269,6 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
-  - jekyll-multiple-languages-plugin
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
