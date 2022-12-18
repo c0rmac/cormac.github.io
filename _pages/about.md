@@ -8,5 +8,4 @@ redirect_from:
   - /about/
   - /about.html
 ---
-{{ site.lang }}
 {% tf _pages/about.md %}

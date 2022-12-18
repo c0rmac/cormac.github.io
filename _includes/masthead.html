@@ -16,6 +16,13 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
+          {% if site.lang == "en" %}
+            {% capture link1 %}{{ site.baseurl_root }}/ga{{ page.url}}{% endcapture %}
+            <li class="masthead__menu-item"><a href="{{ link1 }}">Use site in Irish Gaeilic</a></li>
+          {% elsif site.lang == "ga" %}
+            {% capture link2 %}{{ site.baseurl_root }}{{ page.url  }}{% endcapture %}
+            <li class="masthead__menu-item"><a href="{{ link2 }}">Use site in English</a></li>
+          {% endif %}
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>

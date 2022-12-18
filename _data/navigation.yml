@@ -1,45 +1,33 @@
 # main links links
 main:
   en:
-    - title: "Publications"
-      url: /publications/
-
-    - title: "Talks"
-      url: /talks/    
+    - title: "Blog"
+      url: /year-archive/
 
     - title: "Teaching"
       url: /teaching/    
       
     - title: "Portfolio"
       url: /portfolio/
-          
-    - title: "Blog Posts"
-      url: /year-archive/
       
     - title: "CV"
       url: /cv/
-      
-    - title: "Guide"
-      url: /markdown/
 
-  ga:
-    - title: "Foilsiúcháin"
+    - title: "Publications"
       url: /publications/
 
-    - title: "Cainteanna"
-      url: /talks/    
+  ga:
+    - title: "Blag"
+      url: /year-archive/
 
     - title: "Teagasc"
       url: /teaching/    
       
     - title: "Portfolio"
       url: /portfolio/
-          
-    - title: "Blog Posts"
-      url: /year-archive/
       
     - title: "CV"
       url: /cv/
-      
-    - title: "Guide"
-      url: /markdown/
+
+    - title: "Foilsiúcháin"
+      url: /publications/
