@@ -13,22 +13,26 @@ tags:
 > Suppose toss_biased is a function which returns Heads (H) or Tails (T) with probability $p$ and $q$, $$ p \neq q $$, ie. the toss is biased. <br/><br/>
 Derive a function that simulates an unbiased coin toss
 
-Consider two independent coins:
+Consider two independent coins
 
 $$
 B^{(1)} \sim \text{ toss_biased() } \\
 B^{(2)} \sim \text{ toss_biased() }
+\notag
 $$
 
-In addition, consider the following pairs of events:
+In addition, consider the following pairs of events
 
 $$
-\{H^{(1)}H^{(2)}\}, \{T^{(1)}T^{(2)}\}, \{H^{(1)}T^{(2)}\}, \{T^{(1)}H^{(2)}\}
+\begin{align}
+\{H^{(1)}H^{(2)}\}, \{T^{(1)}T^{(2)}\} \notag \\
+\{H^{(1)}T^{(2)}\}, \{T^{(1)}H^{(2)}\} \notag
+\end{align} \notag
 $$
 
 where $H^{(i)}, T^{(i)}$ are the events that coin $B^{(i)}$ outputs $H$ or $T$.
 
-Due to independence, the probability can be calculated by the product rule $P(B^{(1)}=b^{(1)}, B^{(2)}=b^{(2)}) =P(B^{(1)}=b^{(1)})P(B^{(2)}=b^{(2)})$. Hence, we can compute their joint probabilities:
+Due to independence, the probability can be calculated by the product rule $P(B^{(1)}, B^{(2)})=P(B^{(1)})P(B^{(2)})$. Hence, we can compute their joint probabilities
 
 | $P$       | $H^{(1)}$ | $T^{(1)}$ |
 | ----      | --------- | --------- |
@@ -40,17 +44,19 @@ Now note that $P(H^{(1)},T^{(2)})=P(T^{(1)},H^{(2)})$. We will exploit this prop
 $$
 \bar{H}=\{H^{(1)}T^{(2)}\}\\
 \bar{T}=\{T^{(1)}H^{(2)}\}
+\notag
 $$
 
 be the possible outcomes of the new coin $\bar{B}$. It is clear from the above property that
 
-$$P(\bar{H}) = P(\bar{T})$$
+$$P(\bar{H}) = P(\bar{T}) \notag$$
 
 and $\bar{B}$ is therefore an unbiased coin. Also, consider the following sets
 
 $$
 J=\{H^{(1)}T^{(2)},T^{(1)}H^{(2)}\}=\{\bar{H},\bar{T}\}\\
 K=\{H^{(1)}H^{(2)},T^{(1)}T^{(2)}\}
+\notag
 $$
 
 Note that $r:=P(J)=2pq$ and $s:=P(K)=p^2+q^2$. We may plot the above events as a tree below
@@ -74,9 +80,13 @@ $
 Note that $P(T_J = k) = s^{k-1}r$. We shall calculate $T_J$ until $X_n = K$ for some $n \geq 1$. The probability that $K$ is reached as $n \to \infty$, i.e. that $K$ will be reached after infinite steps, is
 
 $$
-P(T_J \geq 0) =  \sum^{\infty}_{k=1} P(T_J = k) 
-= \sum^{\infty}_{k=1} s^{k-1}r
-= \frac{r}{1-s} = \frac{2pq}{1-p^2-q^2} = 1
+\begin{align}
+P(T_J \geq 0) &= \sum^{\infty}_{k=1} P(T_J = k)\notag \\
+&= \sum^{\infty}_{k=1} s^{k-1}r \notag \\
+&= \frac{r}{1-s} \notag \\
+&= \frac{2pq}{1-p^2-q^2} \notag \\
+&= 1 \notag 
+\end{align} \notag
 $$
 
 Therefore, event $J$ occurs after an infinite number of steps. So now that we know that $J$ occurs almost certainly, we shall consider the following function
