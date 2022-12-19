@@ -8,7 +8,7 @@ Applied Mathematics
 ======
 I am interested in Machine learning topics, especially those related to Markov processes. I am working on a project for my undergraduate degree - The Self-External Walks.
 
-I would like to apply my knowledge of Algebra topics in cryptography.
+I seek to apply my knowledge of Algebra topics in cryptography.
 
 Irish
 ======
