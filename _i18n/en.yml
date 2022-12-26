@@ -6,6 +6,9 @@ langs:
   en: English
 titles:
   about: About me
+  blog: Blog Posts
+  teaching: Teaching
+  publications: Publications
 
 author:
   bio: "Final year Mathematics BA Student and Software Engineer"

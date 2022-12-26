@@ -2,7 +2,7 @@
 layout: single
 permalink: /
 title: "{% t titles.about %}"
-excerpt: title.about
+excerpt: "About me"
 author_profile: true
 redirect_from: 
   - /about/

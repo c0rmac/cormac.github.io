@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Publications"
+title: "{% t titles.publications %}"
 permalink: /publications/
 author_profile: true
 ---
