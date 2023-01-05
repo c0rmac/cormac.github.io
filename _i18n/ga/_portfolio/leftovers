@@ -1,0 +1,43 @@
+|-----auth
+    |----exception
+        |----InvalidAuthenticationException
+        |----InvalidPasscodeLengthException : InvalidAuthenticationException
+        |----UserAlreadyExistsException : InvalidAuthenticationException
+        |----NoneMatchingBCMSEmailException : InvalidAuthenticationException
+        |----NoneMatchingBCMSPasswordException : InvalidAuthenticationException
+        |----InvalidBCMSCredentialsException : InvalidAuthenticationException
+        |----InvalidPasscodeException : InvalidAuthenticationException
+    |----port
+        |----AuthenticationAPI
+    |----transport
+        |----Credentials
+        |----RegistrationApplication
+        |----AmendmentApplication
+            |----BCMSPassword : AmendmentApplication
+|-----payment
+    |-----entity
+        |-----PaymentStatus
+        |-----PaymentMethod
+            |-----Visa
+            |-----Mastercard
+    |-----exception
+        |-----InvoiceNotFoundException
+        |-----InvoiceFieldMissing
+    |-----port
+        |-----PaymentAPI
+        |-----InvoiceAPI
+    |-----transport
+        |-----PaymentContext
+        |-----Invoice
+                |-----Item
+    |-----_Extensions
+|-----resource
+    |-----AWS
+    |-----Resource
+|-----user
+    |-----consumer
+        |-----ConsumerUser
+    |-----port
+        |-----UserPreferenceAPI
+    |-----User
+|-----Constants
