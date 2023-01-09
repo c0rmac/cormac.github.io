@@ -5,6 +5,8 @@ It has been complained by many construction related firms that uploading, often 
 
 The solution to this problem was to create a proxy web application BCMS Upload Services which would allow for multiple document uploads at once. Documents are uploaded to the app in only a few seconds and would then be submitted to the official BCMS website in the background. Furthermore, the app is equipped with a basic queue management system to prevent too many submissions from being sent to the official BCMS website and to prevent performance issues from worsening.
 
+[Click here](https://bcms-upload.ie) to use the app.
+
 ## Gallery
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">

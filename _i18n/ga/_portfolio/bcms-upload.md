@@ -5,6 +5,8 @@ Tá gearáin déanta ag iliomad gnólachtaí tóigeála go bhfuil an t-uafas moi
 
 Is é an réiteach atá ar an bhfadhb seo seachfheidhmchlár idirlín a chruthú a ligfeadh cáipéisí a uaslódáil in aon triail. Ní theastaíonn ach cupla soicind cáipéisí a uaslódáil go dtí an feidhmchlár agus uaslódáiltear iad go dtí an suíomh BCMS oifigiúil sa gcúlra. Lena chois sin, tá córas scuaine bunúsach feistithe ag an bhfeidhmchlár le haghaidh ró-mhéid iarratas á gcur isteach ar an suíomh BCMS oifigiúil a sheachaint agus le haghaidh fadhbanna feidhmíochta atá ag an suíomh cheana féin a mhaolú.
 
+[Cliceáil anseo](https://bcms-upload.ie) le haghaidh é a úsáid.
+
 ## Áiléar
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
