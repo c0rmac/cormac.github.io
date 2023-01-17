@@ -1,4 +1,4 @@
-I am a part-time software engineer. I am training in Mathematics and Statistics as a postgraduate course at Trinity College Dublin and I am in my fourth year. This is the last year of my undergraduate degree and I intend to do a postgraduate course afterwards.
+I am a part-time software engineer. I am training in Mathematics and Statistics for my postgraduate degree at Trinity College Dublin and I am currently in my fourth (and final) year. I intend to undertake a postgraduate degree in Applied Mathematics in TUM afterwards.
 
 Pure Mathematics
 ======
@@ -12,4 +12,4 @@ I seek to apply my knowledge of Algebra topics in cryptography.
 
 Irish
 ======
-I am interested in Connamara Irish, especially Árainn Irish and Cois Fharraige Irish. I love to translating common everyday things into Irish and I publish translations for games, books and TV shows.
+I am interested in Connamara Irish, especially Árainn Irish and Cois Fharraige Irish. I have made a hobby of translating common everyday things into Irish and I publish translations for games, books and TV shows. You can see more of my work [here](http://gaeilgechuncinn.ie)
