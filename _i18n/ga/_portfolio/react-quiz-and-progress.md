@@ -1,5 +1,4 @@
-# React Quiz and Progress
-Tóig Ceistneoir le barra foráis le haghaidh aip React Js
+Tóig Ceistneoir le barra foráis le haghaidh aip React Js.
 
 ## Inspreagadh
 I 2020, bhí mé ag oibriú ar fheidhmchlár ar a dtugtar [House of Costs](https://c0rmac.github.io/portfolio/house-of-costs/)

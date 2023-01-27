@@ -58,7 +58,7 @@ models developed with my B.A. training.
   * Kotlin Multiplatform-ReactJS/Spring web application.
 
 ### Gaeilge Chun Cinn
-  * Initiative I am undertaking with 5 colleagues of mine to translate everyday apps, websites, and games into Irish Gaeilic.
+  * Initiative I am undertaking with 5 colleagues of mine to translate everyday apps, websites, and games into Irish Gaelic.
   * Accomplishments so far:
     * Launched an official Irish translation for the block buster game Amongst Us. See our [Verge article](https://www.theverge.com/2021/7/16/22579968/among-us-official-irish-translation "Verge article").
   * Developed the Wordpress website myself.
