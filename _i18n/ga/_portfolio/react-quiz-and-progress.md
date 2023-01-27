@@ -1,7 +1,7 @@
 Tóig Ceistneoir le barra foráis le haghaidh aip React Js.
 
 ## Inspreagadh
-I 2020, bhí mé ag oibriú ar fheidhmchlár ar a dtugtar [House of Costs](https://c0rmac.github.io/portfolio/house-of-costs/)
+I 2020, bhí mé ag oibriú ar fheidhmchlár ar a dtugtar [House of Costs](https://c0rmac.github.io/ga/portfolio/house-of-costs/)
 inar fiafraíodh den úsáideoir ceistneoir pearsantaithe a chomhlíonadh.
 D'eascair castacht éagsúil ar struchtúr na gceisteanna, de bharr gur nocht freagruithe áirithe
 ar cheisteanna áirithe fo-cheisteanna nua ina ndiadih. Thabharfadh siúd tuiscint

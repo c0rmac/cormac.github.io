@@ -27,4 +27,5 @@ group :jekyll_plugins do
   gem 'hawkins'
   gem 'jekyll-multiple-languages-plugin'
   gem 'jekyll-liquify'
+  gem 'jekyll-google_search_console_verification_file'
 end
