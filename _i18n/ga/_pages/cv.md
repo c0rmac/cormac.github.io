@@ -38,7 +38,8 @@ backend and migrating old podcasts & blog posts from the old websites to the new
 consulting across the global property market and natural resources sectors.
   * Tasked with developing an app to replace physical hand-out cards of health & safety tips used for promoting a safety conscious work environment. Both apps developed using native sdk.
   * Implemented a data table on the company’s website as well as modifying their graphical API using Google Analytics.
-Education Work Experience
+
+Taithí Oibre Oideachais
 ======
 ### Hewitt College Cork --- Education Consultant (January 2021 - July 2021)
   * In charge of designing the template for Physics revision videos in Irish for past Leaving Certificate papers.
