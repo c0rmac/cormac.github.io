@@ -1,4 +1,4 @@
-I am a part-time software engineer. I am training in Mathematics and Statistics for my postgraduate degree at Trinity College Dublin and I am currently in my fourth (and final) year. I intend to undertake a postgraduate degree in Applied Mathematics in TUM afterwards.
+Part-time software engineer and currently training in Mathematics and Statistics for my postgraduate degree at Trinity College Dublin. I am currently in my fourth (and final) year. I intend to undertake a postgraduate degree in Applied Mathematics in TUM afterwards. I also go by my Irish Gaelic surname "Cinnsealach".
 
 Pure Mathematics
 ======

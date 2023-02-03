@@ -1,4 +1,4 @@
-Is innealltóir bogearra páirt-aimsearthach mé. Tá mé ag oiliúint ar an Matamatic ⁊ na Statisticí mar fhóchéim i gColáiste na Tríonóide Baile Átha Cliath agus tá mé sa gceathú bliain. Is í seo bliain dheireanach m'fhóchéime agus tá sé i gceist agam dul le cúrsa iarchéime ina dhiaidh.
+Is innealltóir bogearra páirt-aimsearthach mé. Tá mé ag oiliúint ar an Matamatic ⁊ na Statisticí mar fhóchéim i gColáiste na Tríonóide Baile Átha Cliath agus tá mé sa gceathú bliain. Is í seo bliain dheireanach m'fhóchéime agus tá sé i gceist agam dul le cúrsa iarchéime ina dhiaidh. Tugaimse mo sloinne Gaelach "Cinnsealach" orm freisin.
 
 An Ghlanmhatamatic
 ======
