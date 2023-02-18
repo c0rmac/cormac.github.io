@@ -77,6 +77,5 @@ Skills, Activities & Interests
 * Applied Statistics, Data Analytics & Machine Learning qualifications.
 * Bilingual in English and Irish.
 * Asked in 2014 by Minster for Training & Skills Ciarán Cannon to be a founding member of the Digital Youth Council.
-  * Subsequently received an award for Youngest & Most Influential student in STEM presented by Ciarán Cannon.
 
 * Interests include traveling, reading, hiking and learning foreign languages.
