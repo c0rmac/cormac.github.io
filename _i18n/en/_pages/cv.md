@@ -11,7 +11,7 @@ Education
 
 Software Engineering Work experience
 ======
-### BCMS Upload Services --- Junior Software Engineer (June 2020 - Present)
+### BCMS Upload Services --- Mid-experienced Software Engineer (June 2020 - Present)
   * Application that assists civil engineers with online government bureaucracy by automating the upload process of construction documents and thus reducing the time of submission from one hour to only a few minutes.
   * Tasked with creating the user interface, back-end functionality and working with engineers to develop a finished product.
   * Kotlin-ReactJS/Spring web application.
