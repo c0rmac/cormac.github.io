@@ -1,6 +1,5 @@
 [See the code on GitHub](https://github.com/c0rmac/interlink-alg)
 
-# InterlinkAlg
 A colleague of mine presented me with the following issue from a collection of DNA codes.
 
 Let a DNA code be denoted an alphabetic character. Suppose there is a dictionary containing a sequence of DNA codes. 
@@ -25,25 +24,18 @@ Denote $\text{Seq}(y) \in \text{Dict}$ as any sequence that contains code $y$.
 Define the equivalence relationship by $x \sim y \iff \exists \text{Seq}(y) : x \in \text{Seq}(y)$
 
 Then the identifiers set is defined as:
-
-$$
-\text{Identifiers} = \text{Alpha} / \sim
-$$
+$\text{Identifiers} = \text{Alpha} / \sim$
 
 The objective is to find the members of the set $\text{Identifiers}$.
 
 ## Time Complexity
 
-The overall time complexity of the algorithm is:
-
-$$
-O(M \times L^2 + 2C + C^2)
-$$
+The overall time complexity of the algorithm is: $O(M \times L^2 + 2C + C^2)$
 
 Where:
--  $M = |\text{Dict }|$ is the number of words.
+- $M = \|\text{Dict}\|$ is the number of words.
 - $L$ is the average length of words.
-- $C=|\text{Alpha }|$ is the number of unique characters in the alphabet.
+- $C=\|\text{Alpha}\|$ is the number of unique characters in the alphabet.
 
 ## Algorithm Description
 ### 1. Initialize Data Structures:

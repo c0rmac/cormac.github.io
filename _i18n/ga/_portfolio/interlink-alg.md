@@ -23,26 +23,18 @@ Bíodh $\text{Seq}(y) \in \text{Dict}$ ina sheicheamh ar bith ina bhfuil cód $y
 
 Sainmhínítear an gaol coibhéise trí $x \sim y \iff \exists \text{Seq}(y): x \in \text{Seq}(y)$
 
-Ansin sainmhínítear an tacar aitheantóirí mar:
-
-$$
-\text{Identifiers} = \text{Alpha} / \sim
-$$
+Ansin sainmhínítear an tacar aitheantóirí mar: $\text{Identifiers} = \text{Alpha} / \sim$
 
 Is é an cuspóir baill an tacair $\text{Identifiers}$ a aimsiú.
 
 ## Castacht Ama
 
-Is é castacht iomlán ama an algartam ná:
-
-$$
-O(M \times L^ 2 + 2C + C^2)
-$$
+Is é castacht iomlán ama an algartam ná: $O(M \times L^ 2 + 2C + C^2)$
 
 áit a bhfuil:
-- $M = |\text{Dict}|$ is ea líon na bhfocal.
+- $M = \|\text{Dict}\|$ is ea líon na bhfocal.
 - $L$ mar mheánfhad na bhfocal.
-- $C=|\text{Alpha}|$ is ea líon na gcarachtar uathúla san aibítir.
+- $C=\|\text{Alpha}\|$ is ea líon na gcarachtar uathúla san aibítir.
 
 ## Algartam Description
 ### 1. Cuir Struchtúir Sonraí i dTús:
