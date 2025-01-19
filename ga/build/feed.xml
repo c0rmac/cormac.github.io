@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://c0rmac.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://c0rmac.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-01-19T07:09:04-08:00</updated><id>https://c0rmac.github.io/feed.xml</id><title type="html">Cormac Kinsella</title><subtitle>Final year Mathematics BA Student and Software Engineer</subtitle><author><name>Cormac Kinsella</name></author><entry><title type="html">Public Documentation on BCMS Upload Services</title><link href="https://c0rmac.github.io/posts/2023/1/bcms-upload-1/" rel="alternate" type="text/html" title="Public Documentation on BCMS Upload Services" /><published>2023-01-05T00:00:00-08:00</published><updated>2023-01-05T00:00:00-08:00</updated><id>https://c0rmac.github.io/posts/2023/1/bcms-upload-1</id><content type="html" xml:base="https://c0rmac.github.io/posts/2023/1/bcms-upload-1/"><![CDATA[<p>I provide public documentation of my work regarding <a href="/portfolio/bcms-upload/">BCMS Upload Services</a> in this article where you can see how I structured the application and what decisions led me to those structures be implemented in the application. I show my own way of creating an application and apply my principles which are shown in my work in <code class="language-plaintext highlighter-rouge">trin-app</code> and <code class="language-plaintext highlighter-rouge">trin-react</code>.</p>
+
+<p>Note that this article is continuously being developed.</p>
+
+<p>The BCMS Upload Services application is based on Kotlin Multiplatform with a Common Module, a Server Module and a Web App Module. The <code class="language-plaintext highlighter-rouge">bcms-alt-service</code> submodule has also been created which holds logic that interacts with the official BCMS site. There is an external Wordpress module that constitutes the front page site.</p>
+
+<h2 id="the-common-module">The Common Module</h2>
+<p>The fundamental model of the application is developed here, i.e. where most of the basic features of the application are kept. Data can be safely transferred between the Web App and the server. Generally, the module follows the trin-app guidelines and it imports <code class="language-plaintext highlighter-rouge">trin-app</code> as a submodule. We setup our submodules as follows:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>commons
+|-----upload
+    |-----entity
+        |-----SubmissionStatus
+        |-----UploadStatus
+                |-----Standby : UploadStatus
+                |-----InternalUploading : UploadStatus
+                |-----PendingPayment : UploadStatus
+                |-----PendingBCMSUpload : UploadStatus
+                |-----BCMSUploading : UploadStatus
+                |-----Success : UploadStatus
+                |-----Error : UploadStatus
+    |-----exception
+        |-----UserNotInternallyFoundException
+        |-----BCMSException
+        |-----BCMSDeletionInProgressException : BCMSException
+        |-----BCMSUploadInProgressException : BCMSException
+        |-----BCMSBusyException : BCMSException
+        |-----PaymentCannotBeTakenException
+        |-----InsufficientFundsException
+        |-----BCMSSubmissionNotFoundException
+        |-----BCMSAuthNotFoundException
+        |-----UploadOrderRequestNotFoundException
+        |-----UploadOrdersNotFoundException
+    |-----port
+        |-----MyAppSuppDocUploadAPI
+        |-----SubmissionsUploadAPI
+        |-----MyAppStatDocUploadAPI
+        |-----MyNoticesSuppDocUploadAPI
+        |-----MyNoticesStatDocUploadAPI
+    |-----transport
+        |-----generic
+            |-----IUploadOrder
+            |-----UploadOrder : IUploadOrder
+            |-----UploadOrderRequest
+        |-----myappsuppdoc
+            |-----IUploadOrder
+            |-----UploadOrder : IUploadOrder
+            |-----UploadOrderRequest
+        |-----Submission
+        |-----MyApplicationsSubmission
+        |-----MyNoticesSubmission
+        |-----UploadOrderRequest
+        |-----UploadOrder
+
+</code></pre></div></div>
+
+<p>It is important that this module is kept as compact as possible and keeping any model here requires careful reasoning. In the file tree above, I draw your attention to the <code class="language-plaintext highlighter-rouge">upload</code> subpackage to give an example of my own reasoning. <code class="language-plaintext highlighter-rouge">UploadStatus</code> and <code class="language-plaintext highlighter-rouge">SubmissionStatus</code> appear in <em>entity</em>. It makes sense to keep them in the Common Module since information about uploading documents is transmitted frequently in the application and requires a standard model throughout the application.</p>
+
+<p>Although care must be taken about most of what is kept in this module, there are a couple of rules of thumb for what can normally be included in the module. Consider <code class="language-plaintext highlighter-rouge">exception</code>. Many errors are thrown in an application between ‘a form not filled in correctly’ and an internal problem in the application occuring. Many of the errors a user would see are kept here. An error can be thrown on the Server Module side to notify the user of an error. Thanks to <code class="language-plaintext highlighter-rouge">RESTAPIManager</code> from <code class="language-plaintext highlighter-rouge">trin-react</code>, no preconfiguration in the web application is required to handle an <code class="language-plaintext highlighter-rouge">exception</code> error. The rules of thumb are discussed further in `trin-app’ guidelines and more information on trin-app matters can be found in an article to be published soon.</p>
+
+<h3 id="transmission-of-models">Transmission of Models</h3>
+<p><code class="language-plaintext highlighter-rouge">kotlinx.serialization</code> is used for serializing the models throughout the application. Each <code class="language-plaintext highlighter-rouge">port</code> subpackage maintains a model of commands that are made between the server and the web application. It is up to the Web App Module and the Server Module how the models should be implemented.</p>
+
+<h2 id="the-web-app-module">The Web App Module</h2>
+<p>A ReactJS application written in Kotlin-JS and based on the <code class="language-plaintext highlighter-rouge">trin-react</code> framework is developed in this module. This is a simple interface application with minimal number of pages; they are:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/public/login - LogincVC
+/public/register - RegisterVC
+
+
+/consumer/dashboard - DashboardVC
+
+/consumer/myapplications - MyApplicationVC
+/consumer/services/myapplications/suppdoc/:pUUID - MyApplicationsSuppDocVC
+/consumer/services/myapplications/statdoc/:pUUID - MyApplicationsStatDocVC
+
+/consumer/mynotices - MyNoticesVC
+/consumer/services/mynotices/suppdoc/:pUUID - MyNoticesSuppDocVC
+/consumer/services/mynotices/statdoc/:pUUID - MyNoticesStatDocVC
+</code></pre></div></div>
+
+<h3 id="application-forms">Application Forms</h3>
+<p>I give you an overview of the different forms available on the official BCMS site: My Notices/Supporting Documents, My Notices/Statutory Documents, My Applications/Statutory Documents, My Applications/Supporting Documents and it can be seen that their counterpart has been developed in the above. The first parts of the forms are very similar and I am motivated to create an abstract class on those three pages. The last form is quite different from the other three and cannot easily be based on the same abstract class.</p>
+
+<p>Accordingly, I set up the <em>VCs</em> (ie <em>ViewControllers</em>) as seen in the diagram below:</p>
+<div style="text-align: center; padding-bottom: 16px;">
+<img src="/images/portfolio/bcms-upload/client-app-upload-service-structure.gv.svg?raw=true" alt="Léaráid Aicmí de struchtúr na VCs." />
+</div>
+
+<p>Here is an exact overview of the abstract features of <code class="language-plaintext highlighter-rouge">BaseUploadServiceVC</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Document Submission Logic
+abstract suspend fun uploadDocumentsLoadOnClickHandler()
+
+abstract fun addDocumentOnClickHandler(event: Event)
+
+abstract suspend fun getUploadRequests(): List&lt;T&gt;
+
+abstract suspend fun getSubmission(): Submission
+
+abstract suspend fun executeUploadRequest(uploadOrderRequest: T): T
+
+abstract suspend fun deleteAllUploads()
+
+abstract fun getSubmissionStatus(submission: Submission): SubmissionStatus
+
+abstract fun updateSubmissionStatus(submissionStatus: SubmissionStatus)
+
+// Render Logic
+abstract fun RBuilder.uploadOrdersRender()
+
+abstract fun RBuilder.uploadsRender()
+
+abstract fun RBuilder.addDocumentRender()
+</code></pre></div></div>
+
+<p>and here is an overview of the abstract features of <code class="language-plaintext highlighter-rouge">GenericUploadServiceVC</code> and the inherited functions it implements from <code class="language-plaintext highlighter-rouge">BaseUploadServiceVC</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>abstract val documentTypes: Array&lt;DocumentType.Generic&gt;
+
+// Implemented Functions from BaseUploadServiceVC
+override fun addDocumentOnClickHandler(event: Event)
+
+override fun RBuilder.uploadOrdersRender()
+
+override fun RBuilder.uploadsRender()
+
+override fun RBuilder.addDocumentRender()
+</code></pre></div></div>
+
+<p>That leaves <code class="language-plaintext highlighter-rouge">MyNoticesSuppDocVC</code>, <code class="language-plaintext highlighter-rouge">MyNoticesStatDocVC</code> and <code class="language-plaintext highlighter-rouge">MyNoticesStatDocVC</code> only <code class="language-plaintext highlighter-rouge">uploadDocumentsLoadOnClickHandler</code>, <code class="language-plaintext highlighter-rouge">getUploadRequests</code>, <code class="language-plaintext highlighter-rouge">getSubmission</code>, <code class="language-plaintext highlighter-rouge">executeUploadRequest</code>, <code class="language-plaintext highlighter-rouge">deleteAllUploads</code>, <code class="language-plaintext highlighter-rouge">getSubmissionStatus</code>, <code class="language-plaintext highlighter-rouge">updateSubmissionStatus</code> to implement.</p>
+
+<h2 id="the-server-module">The Server Module</h2>
+<p>The server module is divided into sub-modules based on a hexagonal architecture. The http program is kept in a separate <code class="language-plaintext highlighter-rouge">web-app</code> module and out of the business logic. The basic logic of the application is kept in the <code class="language-plaintext highlighter-rouge">core</code> module as recommended by the hexagonal architecture guidelines but the difference is that <code class="language-plaintext highlighter-rouge">core</code> imports the Common Module together with the <code class="language-plaintext highlighter-rouge">port</code> module, a module that controls the external logic (ie database logic, <code class="language-plaintext highlighter-rouge">web-app</code> module etc.) and which decide what logic <code class="language-plaintext highlighter-rouge">core</code> needs to interact with. As an experiment, I’ve allowed the Common Module to be imported into every module, even `core’ to find out how a structure like this will turn out.</p>
+
+<p>For <code class="language-plaintext highlighter-rouge">web-app</code>, the classes in <code class="language-plaintext highlighter-rouge">port</code> of each subpackage are implemented in <code class="language-plaintext highlighter-rouge">common</code>. Spring Boot is used for all http matters.</p>
+
+<p>The application is hosted by AWS - Amazon Web Services.</p>
+
+<p>Not much else can be commented on this module for the sake of application security.</p>]]></content><author><name>Cormac Kinsella</name></author><category term="bcms upload" /><category term="technical details" /><summary type="html"><![CDATA[I provide public documentation of my work regarding BCMS Upload Services in this article where you can see how I structured the application and what decisions led me to those structures be implemented in the application. I show my own way of creating an application and apply my principles which are shown in my work in trin-app and trin-react.]]></summary></entry><entry><title type="html">Derive a function that simulates an unbiased coin toss - Coding Challenge 1</title><link href="https://c0rmac.github.io/posts/2022/12/coding-challenge-1/" rel="alternate" type="text/html" title="Derive a function that simulates an unbiased coin toss - Coding Challenge 1" /><published>2022-12-18T00:00:00-08:00</published><updated>2022-12-18T00:00:00-08:00</updated><id>https://c0rmac.github.io/posts/2022/12/coding-challenge-1</id><content type="html" xml:base="https://c0rmac.github.io/posts/2022/12/coding-challenge-1/"><![CDATA[<blockquote>
+  <p>Suppose toss_biased is a function which returns Heads (H) or Tails (T) with probability $p$ and $q$, \(p \neq q\), ie. the toss is biased. <br /><br />
+Derive a function that simulates an unbiased coin toss</p>
+</blockquote>
+
+<p>Consider two independent coins</p>
+
+\[B^{(1)} \sim \text{ toss_biased() } \\
+B^{(2)} \sim \text{ toss_biased() }
+\notag\]
+
+<p>In addition, consider the following pairs of events</p>
+
+\[\begin{align}
+\{H^{(1)}H^{(2)}\}, \{T^{(1)}T^{(2)}\} \notag \\
+\{H^{(1)}T^{(2)}\}, \{T^{(1)}H^{(2)}\} \notag
+\end{align} \notag\]
+
+<p>where $H^{(i)}, T^{(i)}$ are the events that coin $B^{(i)}$ outputs $H$ or $T$.</p>
+
+<p>Due to independence, the probability can be calculated by the product rule $P(B^{(1)}, B^{(2)})=P(B^{(1)})P(B^{(2)})$. Hence, we can compute their joint probabilities</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>$P$</th>
+      <th>$H^{(1)}$</th>
+      <th>$T^{(1)}$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$H^{(2)}$</td>
+      <td>$p^2$</td>
+      <td>$pq$</td>
+    </tr>
+    <tr>
+      <td>$T^{(2)}$</td>
+      <td>$pq$</td>
+      <td>$q^2$</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Now note that $P(H^{(1)},T^{(2)})=P(T^{(1)},H^{(2)})$. We will exploit this property to come up with a motivating solution to this challenge. Let</p>
+
+\[\bar{H}=\{H^{(1)}T^{(2)}\}\\
+\bar{T}=\{T^{(1)}H^{(2)}\}
+\notag\]
+
+<p>be the possible outcomes of the new coin $\bar{B}$. It is clear from the above property that</p>
+
+\[P(\bar{H}) = P(\bar{T}) \notag\]
+
+<p>and $\bar{B}$ is therefore an unbiased coin. Also, consider the following sets</p>
+
+\[J=\{H^{(1)}T^{(2)},T^{(1)}H^{(2)}\}=\{\bar{H},\bar{T}\}\\
+K=\{H^{(1)}H^{(2)},T^{(1)}T^{(2)}\}
+\notag\]
+
+<p>Note that $r:=P(J)=2pq$ and $s:=P(K)=p^2+q^2$. We may plot the above events as a tree below</p>
+<div style="text-align: center; padding-bottom: 16px;">
+<img src="/images/posts/coding-challenge-1/tree-graph.gv.svg?raw=true" alt="Léaráid Mharkov den phróiseas togartha" />
+</div>
+
+<p>$J$ is the only event in which the events $\bar{H}$ or $\bar{T}$ are attained and we want event $J$ to occur to obtain its unbiased result. We will need to run the process recursively for $J$ to occur. Therefore, its natural to consider the above tree diagram as a Markov process $X_n$</p>
+
+<div style="text-align: center; padding-bottom: 16px;">
+
+<img src="/images/posts/coding-challenge-1/markov-graph.gv.svg?raw=true" alt="Léaráid Mharkov den phróiseas togartha" />
+$
+P = \begin{bmatrix}
+    r &amp; s \\
+    0 &amp; 1
+\end{bmatrix}
+$
+</div>
+
+<p>Note that $P(T_J = k) = s^{k-1}r$. We shall calculate $T_J$ until $X_n = K$ for some $n \geq 1$. The probability that $K$ is reached as $n \to \infty$, i.e. that $K$ will be reached after infinite steps, is</p>
+
+\[\begin{align}
+P(T_J \geq 0) &amp;= \sum^{\infty}_{k=1} P(T_J = k)\notag \\
+&amp;= \sum^{\infty}_{k=1} s^{k-1}r \notag \\
+&amp;= \frac{r}{1-s} \notag \\
+&amp;= \frac{2pq}{1-p^2-q^2} \notag \\
+&amp;= 1 \notag 
+\end{align} \notag\]
+
+<p>Therefore, event $J$ occurs after an infinite number of steps. So now that we know that $J$ occurs almost certainly, we shall consider the following function</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unbiased_toss() {
+  b1 = toss_biased()
+  b2 = toss_biased()
+
+  if b1 == b2 {
+    # Teagmhas K
+    # Still waiting for the event J to occur which has an unbiased result.
+     # We will execute unbiased_toss again.
+    return unbiased_toss()
+  } else {
+    # Teagmhas J
+    # Give an unbiased result.
+    if (b1 == H) {
+      return H_unbiased
+    } else {
+      return T_unbiased
+    }
+  }
+}
+</code></pre></div></div>]]></content><author><name>Cormac Kinsella</name></author><category term="coding challenge" /><category term="biased" /><category term="simulate" /><category term="coin" /><category term="unbiased" /><summary type="html"><![CDATA[Suppose toss_biased is a function which returns Heads (H) or Tails (T) with probability $p$ and $q$, \(p \neq q\), ie. the toss is biased. Derive a function that simulates an unbiased coin toss]]></summary></entry></feed>
