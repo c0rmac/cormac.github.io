@@ -1,12 +1,14 @@
-Is innealltóir bogearra páirt-aimsearthach mé. Tá mé ag oiliúint ar an Matamatic ⁊ na Statisticí mar fhóchéim i gColáiste na Tríonóide Baile Átha Cliath agus tá mé sa gceathú bliain. Is í seo bliain dheireanach m'fhóchéime agus tá sé i gceist agam dul le cúrsa iarchéime ina dhiaidh. Tugaimse mo sloinne Gaelach "Cinnsealach" orm freisin.
+Tá mé ag déanamh staidéir ar mo chéim mháistreachta sa Mhatamaitic & Eolaíocht Ríomhaireachta in Ollscoil Theicniúil München. I measc na spéiseanna gairmiúla atá agam tá Innealtóireacht Bogearraí, Foghlaim Meaisíní agus tá spéis agam amach anseo i gcriptagrafaíocht fheidhmeach agus é a chomhcheangal le samhlacha ‘Sonraí Móra’.
 
 An Ghlanmhatamatic
 ======
+Is iad na príomhábhair spéise atá agam ná anailís fheidhmiúil agus céimseata difreálach. Déanaim roinnt taighde ar na hábhair seo le linn mo chuid ama saor.
+
 Cuirim suim i dtopaicí Ailgéabair Theibí, .i. Teoric Uimhreach ⁊ Céimseata Ailgéabrach. D'fhreastail mé ar ranganna Teoiric Uimhreach sa darna bliain agus freastalód ar ranganna Céimseatan Ailgéabraí an bhliain seo chugainn.
 
 An Mhatamatic Fheidhmeach
 ======
-Cuirim suim i dtopaicí foghlaimíocht Mheaisín, go háirid úd a bhaineanns le próisis Mharkov. Tá mé ag oibriú ar thionscadal le haghaidh m'fhóchéime - Na Siúlóidí Féinsheachtracha. 
+Cuirim suim i dtopaicí foghlaimíocht Mheaisín, go háirid úd a bhaineanns le próisis Mharkov. Rinne mé thionscadal le haghaidh m'fhóchéime - Na Siúlóidí Féinsheachtracha. 
 
 Ba mhian liom m'eolas ar thopaicí Ailgéabair a chur chun feidhme i gcúrsaí cripteagrafaíochta.
 

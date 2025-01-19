@@ -1,12 +1,14 @@
-I am currently undertaking my degree in Mathematics & Statistics in Trinity College Dublin, which I am due to complete in May 2023. I have plans to undertake a postgraduate degree in Applied Mathematics as well in the Technical University of Munich. My professsional interests include Software Engineering, Statistical Modelling and I have future interests in applied cryptography and combining it with 'Big data' models.
+I am currently undertaking my master's degree in Mathematics & Computer Science in the Technical University of Munich. My professional interests include Software Engineering, Machine Learning and I have future interests in applied cryptography and combining it with 'Big data' models.
 
 Pure Mathematics
 ======
-I am interested in Abstract Algebra topics, ie. Number Theory and Algebraic Geometry. I attended Number Theory classes in my second year and I am currently attending Algebraic Geometry classes at the moment.
+My primary interests are functional analysis and differential geometry. I do some research in these topics in my free time.
+
+I am also interested in Abstract Algebra topics, ie. Number Theory and Algebraic Geometry. I attended Number Theory classes in my second year and I am currently attending Algebraic Geometry classes at the moment.
 
 Applied Mathematics
 ======
-I am interested in Machine learning topics, especially those related to Markov processes. I am currently working on an Applied Mathematics project for my undergraduate degree - The Self-Avoiding Walks. I have invested interests in topics relating to Machine Learning on Graphs as well. I also seek to apply my knowledge of Algebra topics in cryptography.
+I am interested in Machine learning topics, especially those related to Markov processes. I worked on an Applied Mathematics project for my undergraduate degree - The Self-Avoiding Walks. I have invested interests in topics relating to Machine Learning on Graphs as well. I also seek to apply my knowledge of Algebra topics in cryptography.
 
 Irish
 ======
