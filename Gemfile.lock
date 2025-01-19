@@ -271,6 +271,7 @@ PLATFORMS
   x86_64-darwin-22
 
 DEPENDENCIES
+  bundler (= 2.3.26)
   github-pages
   hawkins
   jekyll (= 3.9.0)
